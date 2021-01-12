@@ -1,30 +1,30 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>All Posts - A few ideas about code</title>
-        <link>https://example.com/posts/</link>
+        <link>https://epogrebnyak.github.io/icode/posts/</link>
         <description>All Posts | A few ideas about code</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</managingEditor>
-            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://epogrebnyak.github.io/icode/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Five Days Into  Poetry</title>
-    <link>https://example.com/five_days_into_poetry/</link>
+    <link>https://epogrebnyak.github.io/icode/five_days_into_poetry/</link>
     <pubDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/five_days_into_poetry/</guid>
+    <guid>https://epogrebnyak.github.io/icode/five_days_into_poetry/</guid>
     <description><![CDATA[<p>Being just several days into a package makes you a good reviewer. The impressions are fresh 
 and mastering some new functionality is still a delight. This is where I am with <a href="https://python-poetry.org/" target="_blank" rel="noopener noreffer">Poetry</a>, a next-generation Python package and virtual environment manager.</p>]]></description>
 </item><item>
     <title>Seven classes in Haskell</title>
-    <link>https://example.com/seven_classes_in_haskell/</link>
+    <link>https://epogrebnyak.github.io/icode/seven_classes_in_haskell/</link>
     <pubDate>Fri, 17 May 2019 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/seven_classes_in_haskell/</guid>
+    <guid>https://epogrebnyak.github.io/icode/seven_classes_in_haskell/</guid>
     <description><![CDATA[<p>In December 2018 <a href="https://twitter.com/shumovichy" target="_blank" rel="noopener noreffer">Yuras Shumovich</a> gave me a delightful and gentle <a href="https://github.com/epogrebnyak/haskell-intro" target="_blank" rel="noopener noreffer">introduction to Haskell</a>, that keeps me interested in the language ever since.</p>]]></description>
 </item><item>
     <title>Julia, surprise me!</title>
-    <link>https://example.com/julia_surprise_me/</link>
+    <link>https://epogrebnyak.github.io/icode/julia_surprise_me/</link>
     <pubDate>Mon, 03 Dec 2018 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/julia_surprise_me/</guid>
+    <guid>https://epogrebnyak.github.io/icode/julia_surprise_me/</guid>
     <description><![CDATA[<p>Here I documented the astonishments while learning the Julia programming
 language.</p>]]></description>
 </item></channel>

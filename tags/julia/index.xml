@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>julia - Tag - A few ideas about code</title>
-        <link>https://example.com/tags/julia/</link>
+        <link>https://epogrebnyak.github.io/icode/tags/julia/</link>
         <description>julia - Tag - A few ideas about code</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</managingEditor>
-            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Dec 2018 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.com/tags/julia/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Dec 2018 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://epogrebnyak.github.io/icode/tags/julia/" rel="self" type="application/rss+xml" /><item>
     <title>Julia, surprise me!</title>
-    <link>https://example.com/julia_surprise_me/</link>
+    <link>https://epogrebnyak.github.io/icode/julia_surprise_me/</link>
     <pubDate>Mon, 03 Dec 2018 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/julia_surprise_me/</guid>
+    <guid>https://epogrebnyak.github.io/icode/julia_surprise_me/</guid>
     <description><![CDATA[<p>Here I documented the astonishments while learning the Julia programming
 language.</p>]]></description>
 </item></channel>

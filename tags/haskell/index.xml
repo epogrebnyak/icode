@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>haskell - Tag - A few ideas about code</title>
-        <link>https://example.com/tags/haskell/</link>
+        <link>https://epogrebnyak.github.io/icode/tags/haskell/</link>
         <description>haskell - Tag - A few ideas about code</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</managingEditor>
-            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 17 May 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.com/tags/haskell/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 17 May 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://epogrebnyak.github.io/icode/tags/haskell/" rel="self" type="application/rss+xml" /><item>
     <title>Seven classes in Haskell</title>
-    <link>https://example.com/seven_classes_in_haskell/</link>
+    <link>https://epogrebnyak.github.io/icode/seven_classes_in_haskell/</link>
     <pubDate>Fri, 17 May 2019 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/seven_classes_in_haskell/</guid>
+    <guid>https://epogrebnyak.github.io/icode/seven_classes_in_haskell/</guid>
     <description><![CDATA[<p>In December 2018 <a href="https://twitter.com/shumovichy" target="_blank" rel="noopener noreffer">Yuras Shumovich</a> gave me a delightful and gentle <a href="https://github.com/epogrebnyak/haskell-intro" target="_blank" rel="noopener noreffer">introduction to Haskell</a>, that keeps me interested in the language ever since.</p>]]></description>
 </item></channel>
 </rss>

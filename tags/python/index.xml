@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>python - Tag - A few ideas about code</title>
-        <link>https://example.com/tags/python/</link>
+        <link>https://epogrebnyak.github.io/icode/tags/python/</link>
         <description>python - Tag - A few ideas about code</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</managingEditor>
-            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://example.com/tags/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://epogrebnyak.github.io/icode/tags/python/" rel="self" type="application/rss+xml" /><item>
     <title>Five Days Into  Poetry</title>
-    <link>https://example.com/five_days_into_poetry/</link>
+    <link>https://epogrebnyak.github.io/icode/five_days_into_poetry/</link>
     <pubDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/five_days_into_poetry/</guid>
+    <guid>https://epogrebnyak.github.io/icode/five_days_into_poetry/</guid>
     <description><![CDATA[<p>Being just several days into a package makes you a good reviewer. The impressions are fresh 
 and mastering some new functionality is still a delight. This is where I am with <a href="https://python-poetry.org/" target="_blank" rel="noopener noreffer">Poetry</a>, a next-generation Python package and virtual environment manager.</p>]]></description>
 </item></channel>
