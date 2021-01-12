@@ -113,7 +113,7 @@ Poetry escaped from benevolent disctatorship of Guido
 
 Poetry is very enabling if:
 
-- you already understand and use virtual environments 
+- you already use virtual environments 
 - you release to PyPI often
 - do not depend on `setuptools` for some special features and not locked to `conda` for binaries
 - already use pytest as your testing framework

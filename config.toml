@@ -93,7 +93,7 @@ enableEmoji = true
         weight = 6
     [languages.en.params]
       # site description
-      description = "What I've learned in Python, Julia, Haskell"
+      description = "What I've learned in Python, Julia and Haskell"
       # site keywords
       keywords = ["Theme", "Hugo"]
       # App icon config
