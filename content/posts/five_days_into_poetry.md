@@ -107,6 +107,8 @@ Poetry escaped from benevolent disctatorship of Guido
 - --src layout
 - README.md, not README.rst
 
+https://xkcd.com/1987/
+
 -->
 
 ## When to use Poetry

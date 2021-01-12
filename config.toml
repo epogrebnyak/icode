@@ -1,4 +1,4 @@
-baseURL = "https://epogrebnyak.github.io/icode/"
+baseURL = "https://epogrebnyak.github.io/icode"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "en"
@@ -11,7 +11,7 @@ theme = "LoveIt"
 
 # website title
 # 网站标题
-title = "Some findings about code"
+title = "Findings about code: Five Days Into Python Poetry (January 2021)"
 
 # whether to use robots.txt
 # 是否使用 robots.txt
@@ -47,7 +47,7 @@ enableEmoji = true
         # you can add extra information after the name (HTML format is supported), such as icons
         post = ""
         name = "Posts"
-        url = "/posts/"
+        url = "posts/"
         # title will be shown when you hover on this menu link.
         title = ""
         weight = 1
@@ -75,14 +75,14 @@ enableEmoji = true
       #   url = "/categories/documentation/"
       #   title = ""
       #   weight = 4
-      # [[languages.en.menu.main]]
-      #   identifier = "about"
-      #   pre = ""
-      #   post = ""
-      #   name = "About"
-      #   url = "/about/"
-      #   title = ""
-      #   weight = 5
+      [[languages.en.menu.main]]
+        identifier = "about"
+        pre = ""
+        post = ""
+        name = "About"
+        url = "about/"
+        title = ""
+        weight = 5
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
