@@ -11,7 +11,7 @@ At the time  I was a bit unhappy about package recompilation, but did not
 use Revise.jl that should have prevented it.
 
 The links list in the article is still one of its most useful parts.
-There are two recent helpful additions, that I put below.
+There are several recent helpful additions, that I put below.
 
 ## Julia for pythonistas
 
@@ -22,3 +22,7 @@ There are two recent helpful additions, that I put below.
 {{< tweet 1343599725254217729 >}}
 
 <https://t.me/JuliaLanguage/16337>
+
+## Break Away from Stata
+
+{{< tweet 1347946484872994817 >}}

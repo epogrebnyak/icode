@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>julia - Tag - Some findings about code</title>
+        <title>julia - Tag - Findings about code: Five Days Into Python Poetry (January 2021)</title>
         <link>https://epogrebnyak.github.io/icode/tags/julia/</link>
-        <description>julia - Tag - Some findings about code</description>
+        <description>julia - Tag - Findings about code: Five Days Into Python Poetry (January 2021)</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</managingEditor>
             <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Dec 2018 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://epogrebnyak.github.io/icode/tags/julia/" rel="self" type="application/rss+xml" /><item>
     <title>Julia, surprise me!</title>
