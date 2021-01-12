@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>A few ideas about code</title>
+        <title>Some findings about code</title>
         <link>https://epogrebnyak.github.io/icode/</link>
-        <description>What I&#39;ve learned in Python, Julia, Haskell</description>
+        <description>What I&#39;ve learned in Python, Julia and Haskell</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</managingEditor>
             <webMaster>e.pogrebnyak@gmail.com (Evgeniy Pogrebnyak)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://epogrebnyak.github.io/icode/index.xml" rel="self" type="application/rss+xml" />
