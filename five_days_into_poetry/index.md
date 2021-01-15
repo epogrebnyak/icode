@@ -6,9 +6,7 @@ and mastering some new functionality is still a delight. This is where I am with
 
 <!--more-->
 
-## Part 1: 
-
-### My previous workflow
+## Part 1: My previous workflow
 
 My previous workflow was not too sophisticated and there was not much purity with package versions.
 I had an Anaconda installation and occasionally added packages to global environment (yes, I did). 
@@ -39,7 +37,8 @@ Poetry was not the first thing to adopt from [Hypermodern Packaging][hpp], but I
 
 Also had some prejudice against `pipenv`, which targets same goal as Poetry, but [was not maintained for about a year](https://www.reddit.com/r/Python/comments/aox5ah/moving_away_from_pipenv). The big difference is that `pipenv` is based on the same `setuptools`, while poetry has its own engine for [PEP 517 backend](https://github.com/python-poetry/poetry-core).
 
-### My new workflow
+
+## Part 2: My new workflow
 
 I tried poetry for a new project and liked the result. Here is a minimal example:
 
@@ -57,73 +56,143 @@ echo "There is a test sceleton with simple unit test that should pass"
 poetry run pytest       
 ```
 
-## Part 2: Were there any difficulties?
-
-Coming up next.
-
-<!--
-
-## The Poetry mind model
-
-What I wish someone told me from a start of using Poetry: 
-
-poetry always creates an environment and runs everything in it.there is always some environment in use by poetry 
-poetry shell is a way to enter environment, poetry run something acts the same
-you add dependencies to environment, marking some dependencies as development or extra
-you have to install your package into environment with poetry install 
-your poetry based project is installable with pip, even from your github depository
-you specify python version in project.toml
-you can bump a version number with a command 
-poetry is smart enough to make deterministic package tree from a list of your dependencies 
-some package configurations will not run even on sister python versions
-poetry leaves your git decisions to you, not integrated with version control (probably for good) 
-
-# Fun fact 
-
-Poetry escaped from benevolent disctatorship of Guido 
+For some little customisation use in-project environments
+so that I can see where Poetry actuall creates them, 
+changed readme file to `README.md` from `README.rst`
+and keep adding common commands to
+just command runner to auto me some tasks
 
 
-# Bumps
+### Were there any difficulties?
 
-- no clear way to refer py toml  version in package
-- building a tree sometimes takes up to 100 sec, even on some seemingly simple package addition
-- poetry env command has strange help in CLI which is better explained in the docs
-- some upstream virtualenv problem on Windows, had to fix a specific version
-- a bit of research effort to setup Github actions (I wanted to simplify a template)
+There are a few things I wish someone told me from a start of using Poetry.
 
-- i noticed Colab runs on python 3.6.9 and my installation in 3.8 , it never occurred to me 
-- need to be careful if some dependency is in dev, but you think is is package core 
-- Spyder doesn’t not seem virtualenv-friendly 
+#### There is always an environment in use.
 
+The main thing to keep in mind is that Poetry always creates an virtual environment and runs everything in it. There is always some environment in use by Poetry. 
 
-# My own config
+There are two ways to enter the environment, one is `poetry shell` + `exit`
+after you are done. Another is `poetry run` followed by what 
+what you want to run in the environment, for example `poetry run pytest`
+to invoke pytest in environment.
 
-.venv  + gitignore 
-- use just command runner to auto me some tasks
-- --src layout
-- README.md, not README.rst
+Which environment is active and where is the environment directory?
+If you use just one environment, you might not even care, this is something 
+Poetry took care of for you and put in own folder. I personally 
+like things to be a little more explicit and I activated 
+in-project option:
 
-https://xkcd.com/1987/
+```
+poetry config virtualenvs.in-project true
+```
 
--->
+Now I can see `.venv` folder exlicitly, added 
+it `.venv` to `.gitignore` and I can explore what is inside 
+and even delete it by hand if everything else fails.
+
+You can hack Poetry to work on global environment, but that is not the best use of it,
+you loose functionality by doing that. 
+
+### You can specify Python version in project.toml
+
+Poetry will set the Python version based on your global environment,
+but you can change the version. In my case the default would be:
+
+```
+[tool.poetry.dependencies]
+python = "^3.8"
+```
+For example, Google Colab currently uses Python 3.6.9, so I can 
+possibly fix that version if I want my package to run on Colab.
+However, some package configurations will not run even on sister 
+Python versions.
+
+#### You can add dependencies to package, tooling or as extras
+
+This is well-documented in the manual. You can see what changed
+`pyproject.toml`
+
+```
+poetry add pandas
+poetry add -D black
+cat pyproject.toml
+```
+
+#### You must install your own package to environment (!)
+
+After `poetry add pandas` pandas is available in your 
+environment, `poetry run python -c "import pandas"` 
+should work. But form the start you own package 
+(say, `foo`) is not installed. You have to add 
+it with `poetry install`. I often forgot that step and 
+that left me wondering why things did not work. 
+
+This is a step similar to `pip install -e .`
+
+#### Poetry-based project is installable with pip
+
+Just like this:
+
+```
+pip install pip install git+https://github.com/epogrebnyak/ssg-dataset
+```
+
+No need to create `setup.py` or `requirements.txt`.
+
+### You can bump a version number with a command 
+
+Try any of:
+
+```
+pip version major
+pip version minor 
+pip version patch
+```
+
+and see how `pyproject.toml` changed:
+
+```
+[tool.poetry]
+version = "1.1.2"
+```
+
+This will affect the version seen for PyPI distribution, but not the 
+`___version___ ` in the package, so there is a bit of disconnect there.
+
+#### Poetry leaves your version control decisions to you
+
+Poetry is not integrated with version control (probably for good).
+When you create a new project with Poetry it is up to you
+to thnk of a way to upload it to Github or Gitlab.
+
+For publishing to PyPI there is a dedicated command
+`poetry publish`. 
+
+### Other bumps noticed
+
+- Building a tree sometimes takes up to 100 seconds, even on some seemingly simple package addition
+- Poetry `env` command has strange help in CLI which is better explained in the docs.
+- Had lock into fix a specific version virtualenv version Windows, but it is fixed in new virtualenv release.
 
 ## When to use Poetry
 
-Poetry is very enabling if:
+Poetry is very enabling if you:
 
-- you already use virtual environments 
-- you release to PyPI often
-- do not depend on `setuptools` for some special features and not locked to `conda` for binaries
+- already use virtual environments 
+- release to PyPI often
+- do not depend on `setuptools` for some special features 
+- not locked to `conda` for binaries
 - already use pytest as your testing framework
 
-<!--
+Give it a try!
 
-## Discussions
+{{< admonition tip "Fun fact" false >}}
 
-This post benefited from discussions:
+Poetry escaped from benevolent disctatorship of Guido. 
 
-- ...
-- ...
-- ...
+{{< /admonition >}}
 
--->
+
+<!-- https://xkcd.com/1987/ -->
+
+

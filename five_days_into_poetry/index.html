@@ -31,7 +31,7 @@ and mastering some new functionality is still a delight. This is where I am with
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/epogrebnyak.github.io\/icode\/five_days_into_poetry\/"
-        },"image": ["https:\/\/epogrebnyak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python","wordcount":  468 ,
+        },"image": ["https:\/\/epogrebnyak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python","wordcount":  1083 ,
         "url": "https:\/\/epogrebnyak.github.io\/icode\/five_days_into_poetry\/","datePublished": "2021-01-11T00:00:00+00:00","dateModified": "2021-01-11T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/epogrebnyak.github.io\/images\/avatar.png"},"author": {
@@ -108,8 +108,8 @@ and mastering some new functionality is still a delight. This is where I am with
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Five Days Into  Poetry</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/icode/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evgeniy Pogrebnyak</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-11">2021-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;468 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;<span id="/icode/five_days_into_poetry/" class="leancloud_visitors" data-flag-title="Five Days Into  Poetry">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-11">2021-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1083 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;<span id="/icode/five_days_into_poetry/" class="leancloud_visitors" data-flag-title="Five Days Into  Poetry">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -119,21 +119,39 @@ and mastering some new functionality is still a delight. This is where I am with
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#part-1">Part 1:</a>
+    <li><a href="#part-1-my-previous-workflow">Part 1: My previous workflow</a>
       <ul>
-        <li><a href="#my-previous-workflow">My previous workflow</a></li>
         <li><a href="#why-change-that">Why change that?</a></li>
-        <li><a href="#my-new-workflow">My new workflow</a></li>
       </ul>
     </li>
-    <li><a href="#part-2-were-there-any-difficulties">Part 2: Were there any difficulties?</a></li>
+    <li><a href="#part-2-my-new-workflow">Part 2: My new workflow</a>
+      <ul>
+        <li><a href="#were-there-any-difficulties">Were there any difficulties?</a>
+          <ul>
+            <li><a href="#there-is-always-an-environment-in-use">There is always an environment in use.</a></li>
+          </ul>
+        </li>
+        <li><a href="#you-can-specify-python-version-in-projecttoml">You can specify Python version in project.toml</a>
+          <ul>
+            <li><a href="#you-can-add-dependencies-to-package-tooling-or-as-extras">You can add dependencies to package, tooling or as extras</a></li>
+            <li><a href="#you-must-install-your-own-package-to-environment-">You must install your own package to environment (!)</a></li>
+            <li><a href="#poetry-based-project-is-installable-with-pip">Poetry-based project is installable with pip</a></li>
+          </ul>
+        </li>
+        <li><a href="#you-can-bump-a-version-number-with-a-command">You can bump a version number with a command</a>
+          <ul>
+            <li><a href="#poetry-leaves-your-version-control-decisions-to-you">Poetry leaves your version control decisions to you</a></li>
+          </ul>
+        </li>
+        <li><a href="#other-bumps-noticed">Other bumps noticed</a></li>
+      </ul>
+    </li>
     <li><a href="#when-to-use-poetry">When to use Poetry</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Being just several days into a package makes you a good reviewer. The impressions are fresh 
 and mastering some new functionality is still a delight. This is where I am with <a href="https://python-poetry.org/" target="_blank" rel="noopener noreffer">Poetry</a>, a next-generation Python package and virtual environment manager.</p>
-<h2 id="part-1">Part 1:</h2>
-<h3 id="my-previous-workflow">My previous workflow</h3>
+<h2 id="part-1-my-previous-workflow">Part 1: My previous workflow</h2>
 <p>My previous workflow was not too sophisticated and there was not much purity with package versions.
 I had an Anaconda installation and occasionally added packages to global environment (yes, I did).</p>
 <p>I was isolating a package when needed to test remotely with Github Actions. For that I created an 
@@ -161,7 +179,7 @@ There where no binaries, so nothing required <code>conda</code> in my case.</p>
 <li>there is a clever mechanism to resolve and lock dependencies</li>
 </ul>
 <p>Also had some prejudice against <code>pipenv</code>, which targets same goal as Poetry, but <a href="https://www.reddit.com/r/Python/comments/aox5ah/moving_away_from_pipenv" target="_blank" rel="noopener noreffer">was not maintained for about a year</a>. The big difference is that <code>pipenv</code> is based on the same <code>setuptools</code>, while poetry has its own engine for <a href="https://github.com/python-poetry/poetry-core" target="_blank" rel="noopener noreffer">PEP 517 backend</a>.</p>
-<h3 id="my-new-workflow">My new workflow</h3>
+<h2 id="part-2-my-new-workflow">Part 2: My new workflow</h2>
 <p>I tried poetry for a new project and liked the result. Here is a minimal example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -191,73 +209,146 @@ poetry install
 poetry run pytest       
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="part-2-were-there-any-difficulties">Part 2: Were there any difficulties?</h2>
-<p>Coming up next.</p>
-<!--
-
-## The Poetry mind model
-
-What I wish someone told me from a start of using Poetry: 
-
-poetry always creates an environment and runs everything in it.there is always some environment in use by poetry 
-poetry shell is a way to enter environment, poetry run something acts the same
-you add dependencies to environment, marking some dependencies as development or extra
-you have to install your package into environment with poetry install 
-your poetry based project is installable with pip, even from your github depository
-you specify python version in project.toml
-you can bump a version number with a command 
-poetry is smart enough to make deterministic package tree from a list of your dependencies 
-some package configurations will not run even on sister python versions
-poetry leaves your git decisions to you, not integrated with version control (probably for good) 
-
-# Fun fact 
-
-Poetry escaped from benevolent disctatorship of Guido 
-
-
-# Bumps
-
-- no clear way to refer py toml  version in package
-- building a tree sometimes takes up to 100 sec, even on some seemingly simple package addition
-- poetry env command has strange help in CLI which is better explained in the docs
-- some upstream virtualenv problem on Windows, had to fix a specific version
-- a bit of research effort to setup Github actions (I wanted to simplify a template)
-
-- i noticed Colab runs on python 3.6.9 and my installation in 3.8 , it never occurred to me 
-- need to be careful if some dependency is in dev, but you think is is package core 
-- Spyder doesn’t not seem virtualenv-friendly 
-
-
-# My own config
-
-.venv  + gitignore 
-- use just command runner to auto me some tasks
-- --src layout
-- README.md, not README.rst
-
-https://xkcd.com/1987/
-
--->
-<h2 id="when-to-use-poetry">When to use Poetry</h2>
-<p>Poetry is very enabling if:</p>
+</div><p>For some little customisation use in-project environments
+so that I can see where Poetry actuall creates them, 
+changed readme file to <code>README.md</code> from <code>README.rst</code>
+and keep adding common commands to
+just command runner to auto me some tasks</p>
+<h3 id="were-there-any-difficulties">Were there any difficulties?</h3>
+<p>There are a few things I wish someone told me from a start of using Poetry.</p>
+<h4 id="there-is-always-an-environment-in-use">There is always an environment in use.</h4>
+<p>The main thing to keep in mind is that Poetry always creates an virtual environment and runs everything in it. There is always some environment in use by Poetry.</p>
+<p>There are two ways to enter the environment, one is <code>poetry shell</code> + <code>exit</code>
+after you are done. Another is <code>poetry run</code> followed by what 
+what you want to run in the environment, for example <code>poetry run pytest</code>
+to invoke pytest in environment.</p>
+<p>Which environment is active and where is the environment directory?
+If you use just one environment, you might not even care, this is something 
+Poetry took care of for you and put in own folder. I personally 
+like things to be a little more explicit and I activated 
+in-project option:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">poetry config virtualenvs.in-project true
+</code></pre></td></tr></table>
+</div>
+</div><p>Now I can see <code>.venv</code> folder exlicitly, added 
+it <code>.venv</code> to <code>.gitignore</code> and I can explore what is inside 
+and even delete it by hand if everything else fails.</p>
+<p>You can hack Poetry to work on global environment, but that is not the best use of it,
+you loose functionality by doing that.</p>
+<h3 id="you-can-specify-python-version-in-projecttoml">You can specify Python version in project.toml</h3>
+<p>Poetry will set the Python version based on your global environment,
+but you can change the version. In my case the default would be:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[tool.poetry.dependencies]
+python = &#34;^3.8&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>For example, Google Colab currently uses Python 3.6.9, so I can 
+possibly fix that version if I want my package to run on Colab.
+However, some package configurations will not run even on sister 
+Python versions.</p>
+<h4 id="you-can-add-dependencies-to-package-tooling-or-as-extras">You can add dependencies to package, tooling or as extras</h4>
+<p>This is well-documented in the manual. You can see what changed
+<code>pyproject.toml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">poetry add pandas
+poetry add -D black
+cat pyproject.toml
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="you-must-install-your-own-package-to-environment-">You must install your own package to environment (!)</h4>
+<p>After <code>poetry add pandas</code> pandas is available in your 
+environment, <code>poetry run python -c &quot;import pandas&quot;</code> 
+should work. But form the start you own package 
+(say, <code>foo</code>) is not installed. You have to add 
+it with <code>poetry install</code>. I often forgot that step and 
+that left me wondering why things did not work.</p>
+<p>This is a step similar to <code>pip install -e .</code></p>
+<h4 id="poetry-based-project-is-installable-with-pip">Poetry-based project is installable with pip</h4>
+<p>Just like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install pip install git+https://github.com/epogrebnyak/ssg-dataset
+</code></pre></td></tr></table>
+</div>
+</div><p>No need to create <code>setup.py</code> or <code>requirements.txt</code>.</p>
+<h3 id="you-can-bump-a-version-number-with-a-command">You can bump a version number with a command</h3>
+<p>Try any of:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip version major
+pip version minor 
+pip version patch
+</code></pre></td></tr></table>
+</div>
+</div><p>and see how <code>pyproject.toml</code> changed:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[tool.poetry]
+version = &#34;1.1.2&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>This will affect the version seen for PyPI distribution, but not the 
+<code>___version___ </code> in the package, so there is a bit of disconnect there.</p>
+<h4 id="poetry-leaves-your-version-control-decisions-to-you">Poetry leaves your version control decisions to you</h4>
+<p>Poetry is not integrated with version control (probably for good).
+When you create a new project with Poetry it is up to you
+to thnk of a way to upload it to Github or Gitlab.</p>
+<p>For publishing to PyPI there is a dedicated command
+<code>poetry publish</code>.</p>
+<h3 id="other-bumps-noticed">Other bumps noticed</h3>
 <ul>
-<li>you already use virtual environments</li>
-<li>you release to PyPI often</li>
-<li>do not depend on <code>setuptools</code> for some special features and not locked to <code>conda</code> for binaries</li>
+<li>Building a tree sometimes takes up to 100 seconds, even on some seemingly simple package addition</li>
+<li>Poetry <code>env</code> command has strange help in CLI which is better explained in the docs.</li>
+<li>Had lock into fix a specific version virtualenv version Windows, but it is fixed in new virtualenv release.</li>
+</ul>
+<h2 id="when-to-use-poetry">When to use Poetry</h2>
+<p>Poetry is very enabling if you:</p>
+<ul>
+<li>already use virtual environments</li>
+<li>release to PyPI often</li>
+<li>do not depend on <code>setuptools</code> for some special features</li>
+<li>not locked to <code>conda</code> for binaries</li>
 <li>already use pytest as your testing framework</li>
 </ul>
-<!--
-
-## Discussions
-
-This post benefited from discussions:
-
-- ...
-- ...
-- ...
-
---><blockquote>
-</blockquote></div><div class="post-footer" id="post-footer">
+<p>Give it a try!</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Fun fact<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Poetry escaped from benevolent disctatorship of Guido.</div>
+        </div>
+    </div>
+<!-- https://xkcd.com/1987/ --></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
