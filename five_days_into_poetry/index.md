@@ -1,8 +1,7 @@
 # Five Days Into  Poetry
 
 
-Being just several days into a package makes you a good reviewer. The impressions are fresh 
-and mastering some new functionality is still a delight. This is where I am with [Poetry](https://python-poetry.org/), a next-generation Python package and virtual environment manager.
+Being just several days into a package makes you a good reviewer. The impressions are fresh and mastering some new functionality is still a delight. This is where I am with [Poetry](https://python-poetry.org/), a next-generation Python package and virtual environment manager.
 
 <!--more-->
 
@@ -11,15 +10,14 @@ and mastering some new functionality is still a delight. This is where I am with
 My previous workflow was not too sophisticated and there was not much purity with package versions.
 I had an Anaconda installation and occasionally added packages to global environment (yes, I did). 
 
-I was isolating a package when needed to test remotely with Github Actions. For that I created an 
-environment with `venv`, installed dependencies there and freezed them 
+I was isolating a package when needed to test remotely with Github Actions. For that I created an environment with `venv`, installed dependencies there and freezed them 
 into `requirements.txt` with `pip`. There was a `setup.py` for PyPi-based projects, which I hestated to touch after I got it to work. 
 
 Also maintained a separate `requirements-dev.txt` just to take note of extra tools I was using. There where no binaries, so nothing required `conda` in my case.
 
 #### Why change that?
 
-1. My interest to Poetry actually came from looking for a better project file structure. That led me to review [Hypermodern Python Packaging][hpp], which I started to adopt gradually. For example, I already used pytest, black, isort and mypy, but still see no additional value for me in `nox` test runner or more linters inside the project. 
+1. My interest to Poetry came from looking for a better project file structure. That led me to review [Hypermodern Python Packaging][hpp], which I started to adopt gradually. For example, I already used pytest, black, isort and mypy, but still see no additional value for me in `nox` test runner or more linters inside the project. 
 
 [hpp]: https://cjolowicz.github.io/posts/hypermodern-python-01-setup/
 
@@ -40,7 +38,6 @@ Also had some prejudice against `pipenv`, which targets same goal as Poetry, but
 
 I tried poetry for a new project and liked the result. Here is a minimal example:
 
-
 {{< highlight bash >}}
 pip install poetry 
 poetry new wee 
@@ -60,7 +57,7 @@ poetry show --tree
 
 There are a few things I wish someone told me from a start of using Poetry.
 
-### There is always an environment in use
+### 1. There is always an environment in use
 
 The main thing to keep in mind is that Poetry always creates an virtual environment and runs everything in it. There is always some environment in use by Poetry. 
 
@@ -86,7 +83,7 @@ Now I can see `.venv` folder exlicitly, added it `.venv` to `.gitignore` and I c
 You can hack Poetry to work on global environment, but that is not the best use of it,
 you loose functionality by doing that. 
 
-### You can specify Python version in project.toml
+### 2. You can specify Python version in project.toml
 
 Poetry will set the Python version based on your global environment,
 but you can change the version. In my case the default would be:
@@ -100,7 +97,7 @@ possibly fix that version if I want my package to run on Colab.
 However, some package configurations will not run even on sister 
 Python versions.
 
-### You can add dependencies to package, tooling or as extras
+### 3. You can add dependencies to package, tooling or as extras
 
 This is well-documented in the manual. You can see what changed
 `pyproject.toml`
@@ -111,7 +108,7 @@ poetry add -D black
 cat pyproject.toml
 ```
 
-### You must install your own package to environment (!)
+### 4. You must install your own package to environment (!)
 
 After `poetry add pandas` pandas is available in your 
 environment, `poetry run python -c "import pandas"` 
@@ -122,7 +119,7 @@ that left me wondering why things did not work.
 
 This is a step similar to `pip install -e .`
 
-### Poetry-based project is installable with pip (!)
+### 5. Poetry-based project is installable with pip (!)
 
 Just like this:
 
@@ -132,7 +129,7 @@ pip install pip install git+https://github.com/epogrebnyak/ssg-dataset
 
 No need to create `setup.py` or `requirements.txt`.
 
-### You can bump a version number with a command 
+### 6. You can bump a version number with a command 
 
 Try any of:
 
@@ -149,12 +146,12 @@ and see how `pyproject.toml` changed:
 version = "1.1.2"
 ```
 
-### ... but pkg.__version__ is not affected
+... but pkg.\_\_version\_\_ is not affected. 
 
-This will affect the version seen for PyPI distribution, but not the 
-`___version___ ` in the package, so there is a bit of disconnect there.
+The command will change the version im `pyproject.toml` seen at PyPI distribution, but not the `___version___ ` in the package, so there is a bit of disconnect there.
 
-### Poetry leaves your version control decisions to you
+
+### 7. Poetry leaves your version control decisions to you
 
 Poetry is not integrated with version control (probably for good).
 When you create a new project with Poetry it is up to you
@@ -163,11 +160,13 @@ to thnk of a way to upload it to Github or Gitlab.
 For publishing to PyPI there is a dedicated command
 `poetry publish`. 
 
+<!--
 ### Some bumps noticed
 
 - Building a tree sometimes takes over 100 seconds, even on some seemingly simple package addition.
 - Poetry `env` command has strange help in CLI which is better explained in the docs.
 - I had lock into fix a specific virtualenv version to make Poetry work on Windows, but it is fixed now in new virtualenv release.
+-->
 
 ## When to use Poetry
 
