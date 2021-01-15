@@ -6,7 +6,7 @@ and mastering some new functionality is still a delight. This is where I am with
 
 <!--more-->
 
-## Part 1: My previous workflow
+## My previous workflow
 
 My previous workflow was not too sophisticated and there was not much purity with package versions.
 I had an Anaconda installation and occasionally added packages to global environment (yes, I did). 
@@ -38,11 +38,12 @@ Poetry was not the first thing to adopt from [Hypermodern Packaging][hpp], but I
 Also had some prejudice against `pipenv`, which targets same goal as Poetry, but [was not maintained for about a year](https://www.reddit.com/r/Python/comments/aox5ah/moving_away_from_pipenv). The big difference is that `pipenv` is based on the same `setuptools`, while poetry has its own engine for [PEP 517 backend](https://github.com/python-poetry/poetry-core).
 
 
-## Part 2: My new workflow
+## My new workflow
 
 I tried poetry for a new project and liked the result. Here is a minimal example:
 
-```bash
+
+{{< highlight bash >}}
 pip install poetry 
 poetry new wee 
 cd wee
@@ -50,24 +51,17 @@ echo "Let's see how the config file looks like"
 cat pyproject.toml      
 poetry add pandas
 poetry add -D sphinx 
-echo "Without `poetry install` your original package 'wee' is not in the env"
+echo "Without `poetry install` your package 'wee' is not in the environment"
 poetry install         
-echo "There is a test sceleton with simple unit test that should pass"
+echo "There is a simple unit test already configured"
 poetry run pytest       
-```
+{{< / highlight >}}
 
-For some little customisation use in-project environments
-so that I can see where Poetry actuall creates them, 
-changed readme file to `README.md` from `README.rst`
-and keep adding common commands to
-just command runner to auto me some tasks
-
-
-### Were there any difficulties?
+## What I learned
 
 There are a few things I wish someone told me from a start of using Poetry.
 
-#### There is always an environment in use.
+### There is always an environment in use
 
 The main thing to keep in mind is that Poetry always creates an virtual environment and runs everything in it. There is always some environment in use by Poetry. 
 
@@ -107,7 +101,7 @@ possibly fix that version if I want my package to run on Colab.
 However, some package configurations will not run even on sister 
 Python versions.
 
-#### You can add dependencies to package, tooling or as extras
+### You can add dependencies to package, tooling or as extras
 
 This is well-documented in the manual. You can see what changed
 `pyproject.toml`
@@ -118,7 +112,7 @@ poetry add -D black
 cat pyproject.toml
 ```
 
-#### You must install your own package to environment (!)
+### You must install your own package to environment (!)
 
 After `poetry add pandas` pandas is available in your 
 environment, `poetry run python -c "import pandas"` 
@@ -129,7 +123,7 @@ that left me wondering why things did not work.
 
 This is a step similar to `pip install -e .`
 
-#### Poetry-based project is installable with pip
+### Poetry-based project is installable with pip (!)
 
 Just like this:
 
@@ -156,10 +150,12 @@ and see how `pyproject.toml` changed:
 version = "1.1.2"
 ```
 
+### ... but pkg.__version__ is not affected
+
 This will affect the version seen for PyPI distribution, but not the 
 `___version___ ` in the package, so there is a bit of disconnect there.
 
-#### Poetry leaves your version control decisions to you
+### Poetry leaves your version control decisions to you
 
 Poetry is not integrated with version control (probably for good).
 When you create a new project with Poetry it is up to you
@@ -168,7 +164,7 @@ to thnk of a way to upload it to Github or Gitlab.
 For publishing to PyPI there is a dedicated command
 `poetry publish`. 
 
-### Other bumps noticed
+### Some bumps noticed
 
 - Building a tree sometimes takes up to 100 seconds, even on some seemingly simple package addition
 - Poetry `env` command has strange help in CLI which is better explained in the docs.
@@ -186,13 +182,13 @@ Poetry is very enabling if you:
 
 Give it a try!
 
-{{< admonition tip "Fun fact" false >}}
+{{< admonition tip "Fun fact" true >}}
 
-Poetry escaped from benevolent disctatorship of Guido. 
+Poetry escaped from benevolent disctatorship of Guido
+(and so did dependabot). 
+
+{{< tweet 1227126706089021440 >}}
 
 {{< /admonition >}}
 
-
 <!-- https://xkcd.com/1987/ -->
-
-
