@@ -13,13 +13,11 @@ I had an Anaconda installation and occasionally added packages to global environ
 
 I was isolating a package when needed to test remotely with Github Actions. For that I created an 
 environment with `venv`, installed dependencies there and freezed them 
-into `requirements.txt` with `pip`. There was a `setup.py` for PyPi-based projects, which I hestated 
-to touch after I got it to work. 
+into `requirements.txt` with `pip`. There was a `setup.py` for PyPi-based projects, which I hestated to touch after I got it to work. 
 
-Also maintained a separate `requirements-dev.txt` just to take note of extra tools I was using.
-There where no binaries, so nothing required `conda` in my case.
+Also maintained a separate `requirements-dev.txt` just to take note of extra tools I was using. There where no binaries, so nothing required `conda` in my case.
 
-### Why change that?
+#### Why change that?
 
 1. My interest to Poetry actually came from looking for a better project file structure. That led me to review [Hypermodern Python Packaging][hpp], which I started to adopt gradually. For example, I already used pytest, black, isort and mypy, but still see no additional value for me in `nox` test runner or more linters inside the project. 
 
@@ -55,6 +53,7 @@ echo "Without `poetry install` your package 'wee' is not in the environment"
 poetry install         
 echo "There is a simple unit test already configured"
 poetry run pytest       
+poetry show --tree
 {{< / highlight >}}
 
 ## What I learned
@@ -70,19 +69,19 @@ after you are done. Another is `poetry run` followed by what
 what you want to run in the environment, for example `poetry run pytest`
 to invoke pytest in environment.
 
+#### Where are the environment files?
+
 Which environment is active and where is the environment directory?
 If you use just one environment, you might not even care, this is something 
-Poetry took care of for you and put in own folder. I personally 
-like things to be a little more explicit and I activated 
-in-project option:
+Poetry took care of for you and put in own folder. 
+
+I activated in-project option:
 
 ```
 poetry config virtualenvs.in-project true
 ```
 
-Now I can see `.venv` folder exlicitly, added 
-it `.venv` to `.gitignore` and I can explore what is inside 
-and even delete it by hand if everything else fails.
+Now I can see `.venv` folder exlicitly, added it `.venv` to `.gitignore` and I can explore what is inside and even delete it by hand if everything else fails.
 
 You can hack Poetry to work on global environment, but that is not the best use of it,
 you loose functionality by doing that. 
@@ -166,9 +165,9 @@ For publishing to PyPI there is a dedicated command
 
 ### Some bumps noticed
 
-- Building a tree sometimes takes up to 100 seconds, even on some seemingly simple package addition
+- Building a tree sometimes takes over 100 seconds, even on some seemingly simple package addition.
 - Poetry `env` command has strange help in CLI which is better explained in the docs.
-- Had lock into fix a specific version virtualenv version Windows, but it is fixed in new virtualenv release.
+- I had lock into fix a specific virtualenv version to make Poetry work on Windows, but it is fixed now in new virtualenv release.
 
 ## When to use Poetry
 

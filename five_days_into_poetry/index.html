@@ -31,7 +31,7 @@ and mastering some new functionality is still a delight. This is where I am with
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/epogrebnyak.github.io\/icode\/five_days_into_poetry\/"
-        },"image": ["https:\/\/epogrebnyak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python","wordcount":  1102 ,
+        },"image": ["https:\/\/epogrebnyak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python","wordcount":  1105 ,
         "url": "https:\/\/epogrebnyak.github.io\/icode\/five_days_into_poetry\/","datePublished": "2021-01-11T00:00:00+00:00","dateModified": "2021-01-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/epogrebnyak.github.io\/images\/avatar.png"},"author": {
@@ -108,7 +108,7 @@ and mastering some new functionality is still a delight. This is where I am with
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Five Days Into  Poetry</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/icode/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evgeniy Pogrebnyak</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-11">2021-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1102 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-11">2021-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1105 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;<span id="/icode/five_days_into_poetry/" class="leancloud_visitors" data-flag-title="Five Days Into  Poetry">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
@@ -121,13 +121,21 @@ and mastering some new functionality is still a delight. This is where I am with
   <ul>
     <li><a href="#my-previous-workflow">My previous workflow</a>
       <ul>
-        <li><a href="#why-change-that">Why change that?</a></li>
+        <li>
+          <ul>
+            <li><a href="#why-change-that">Why change that?</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#my-new-workflow">My new workflow</a></li>
     <li><a href="#what-i-learned">What I learned</a>
       <ul>
-        <li><a href="#there-is-always-an-environment-in-use">There is always an environment in use</a></li>
+        <li><a href="#there-is-always-an-environment-in-use">There is always an environment in use</a>
+          <ul>
+            <li><a href="#where-are-the-environment-files">Where are the environment files?</a></li>
+          </ul>
+        </li>
         <li><a href="#you-can-specify-python-version-in-projecttoml">You can specify Python version in project.toml</a></li>
         <li><a href="#you-can-add-dependencies-to-package-tooling-or-as-extras">You can add dependencies to package, tooling or as extras</a></li>
         <li><a href="#you-must-install-your-own-package-to-environment-">You must install your own package to environment (!)</a></li>
@@ -148,11 +156,9 @@ and mastering some new functionality is still a delight. This is where I am with
 I had an Anaconda installation and occasionally added packages to global environment (yes, I did).</p>
 <p>I was isolating a package when needed to test remotely with Github Actions. For that I created an 
 environment with <code>venv</code>, installed dependencies there and freezed them 
-into <code>requirements.txt</code> with <code>pip</code>. There was a <code>setup.py</code> for PyPi-based projects, which I hestated 
-to touch after I got it to work.</p>
-<p>Also maintained a separate <code>requirements-dev.txt</code> just to take note of extra tools I was using.
-There where no binaries, so nothing required <code>conda</code> in my case.</p>
-<h3 id="why-change-that">Why change that?</h3>
+into <code>requirements.txt</code> with <code>pip</code>. There was a <code>setup.py</code> for PyPi-based projects, which I hestated to touch after I got it to work.</p>
+<p>Also maintained a separate <code>requirements-dev.txt</code> just to take note of extra tools I was using. There where no binaries, so nothing required <code>conda</code> in my case.</p>
+<h4 id="why-change-that">Why change that?</h4>
 <ol>
 <li>My interest to Poetry actually came from looking for a better project file structure. That led me to review <a href="https://cjolowicz.github.io/posts/hypermodern-python-01-setup/" target="_blank" rel="noopener noreffer">Hypermodern Python Packaging</a>, which I started to adopt gradually. For example, I already used pytest, black, isort and mypy, but still see no additional value for me in <code>nox</code> test runner or more linters inside the project.</li>
 </ol>
@@ -186,6 +192,7 @@ There where no binaries, so nothing required <code>conda</code> in my case.</p>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">pip install poetry 
@@ -198,7 +205,8 @@ poetry add -D sphinx
 <span class="nb">echo</span> <span class="s2">&#34;Without `poetry install` your package &#39;wee&#39; is not in the environment&#34;</span>
 poetry install         
 <span class="nb">echo</span> <span class="s2">&#34;There is a simple unit test already configured&#34;</span>
-poetry run pytest       </code></pre></td></tr></table>
+poetry run pytest       
+poetry show --tree</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="what-i-learned">What I learned</h2>
@@ -209,11 +217,11 @@ poetry run pytest       </code></pre></td></tr></table>
 after you are done. Another is <code>poetry run</code> followed by what 
 what you want to run in the environment, for example <code>poetry run pytest</code>
 to invoke pytest in environment.</p>
+<h4 id="where-are-the-environment-files">Where are the environment files?</h4>
 <p>Which environment is active and where is the environment directory?
 If you use just one environment, you might not even care, this is something 
-Poetry took care of for you and put in own folder. I personally 
-like things to be a little more explicit and I activated 
-in-project option:</p>
+Poetry took care of for you and put in own folder.</p>
+<p>I activated in-project option:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -222,9 +230,7 @@ in-project option:</p>
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">poetry config virtualenvs.in-project true
 </code></pre></td></tr></table>
 </div>
-</div><p>Now I can see <code>.venv</code> folder exlicitly, added 
-it <code>.venv</code> to <code>.gitignore</code> and I can explore what is inside 
-and even delete it by hand if everything else fails.</p>
+</div><p>Now I can see <code>.venv</code> folder exlicitly, added it <code>.venv</code> to <code>.gitignore</code> and I can explore what is inside and even delete it by hand if everything else fails.</p>
 <p>You can hack Poetry to work on global environment, but that is not the best use of it,
 you loose functionality by doing that.</p>
 <h3 id="you-can-specify-python-version-in-projecttoml">You can specify Python version in project.toml</h3>
@@ -314,9 +320,9 @@ to thnk of a way to upload it to Github or Gitlab.</p>
 <code>poetry publish</code>.</p>
 <h3 id="some-bumps-noticed">Some bumps noticed</h3>
 <ul>
-<li>Building a tree sometimes takes up to 100 seconds, even on some seemingly simple package addition</li>
+<li>Building a tree sometimes takes over 100 seconds, even on some seemingly simple package addition.</li>
 <li>Poetry <code>env</code> command has strange help in CLI which is better explained in the docs.</li>
-<li>Had lock into fix a specific version virtualenv version Windows, but it is fixed in new virtualenv release.</li>
+<li>I had lock into fix a specific virtualenv version to make Poetry work on Windows, but it is fixed now in new virtualenv release.</li>
 </ul>
 <h2 id="when-to-use-poetry">When to use Poetry</h2>
 <p>Poetry is very enabling if you:</p>
